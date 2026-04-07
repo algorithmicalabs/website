@@ -44,23 +44,46 @@ function initializeReveal() {
 // Make it globally accessible for dynamic content
 window.initializeReveal = initializeReveal;
 
+// Global Platform Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  initializeReveal();
+    // Mobile Navigation Architecture
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            // Prevent body scroll when menu is engaged
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
 
-  // Active Nav Link Highlighting
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-links a');
-  navLinks.forEach(link => {
-    const linkPath = link.getAttribute('href');
-    if (currentPath === linkPath || (currentPath === '/' && linkPath === '/index.html')) {
-      link.classList.add('active');
+        // Close menu on link interaction for a precision transition
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
     }
-  });
 
-  // Handle Navbar Background on Scroll
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
+    initializeReveal();
+
+    // Active Nav Link Highlighting
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath === linkPath || (currentPath === '/' && linkPath === '/index.html')) {
+            link.classList.add('active');
+        }
+    });
+
+    // Handle Navbar Background on Scroll
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar.classList.add('navbar-scrolled');
       } else {
