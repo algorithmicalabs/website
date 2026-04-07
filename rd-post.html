@@ -65,13 +65,13 @@
                 <span class="logo-sub">Labs</span>
             </a>
             <div class="nav-links">
-                <a href="/challenge.html">Challenge</a>
-                <a href="/solutions.html">Solution</a>
-                <a href="/process.html">Engagement</a>
-                <a href="/terms.html">Terms</a>
-                <a href="/industry-insights.html">Insights</a>
-                <a href="/rd.html">R&D</a>
-                <a href="/contact.html" class="btn btn-outline" style="margin-left: 2.5rem;">Strategy Call</a>
+                <a href="/challenge">Challenge</a>
+                <a href="/solutions">Solution</a>
+                <a href="/process">Engagement</a>
+                <a href="/terms">Terms</a>
+                <a href="/industry-insights">Insights</a>
+                <a href="/rd">R&D</a>
+                <a href="/contact" class="btn btn-outline" style="margin-left: 2.5rem;">Strategy Call</a>
             </div>
         </div>
     </nav>
@@ -81,10 +81,17 @@
             <div class="container">
                 <div class="max-w-700 mx-auto">
                     <div class="breadcrumb" style="margin-bottom: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-ghost);">
-                        <a href="/rd.html" style="text-decoration: none; color: var(--text-muted);">&larr; R&D ARCHIVE</a>
+                        <a href="/rd" style="text-decoration: none; color: var(--text-muted);">&larr; R&D ARCHIVE</a>
                     </div>
                     <p id="post-label" class="section-label">Research Node Synchronizing...</p>
                     <h1 id="post-title" class="headline headline-em" style="font-size: 2.8rem; margin-bottom: 3rem;"></h1>
+
+                     <div id="post-header-accent" class="insight-header mb-5" style="border-radius: 0;">
+                        <div class="insight-brand">
+                            <span class="brand-main">Algorithmica</span>
+                            <span class="brand-sub">Labs</span>
+                        </div>
+                    </div>
 
                     <div id="research-code" style="font-size: 0.8rem; font-family: monospace; color: var(--text-ghost); margin-bottom: 2rem;"></div>
 
@@ -95,11 +102,11 @@
                     <div class="next-step-box mt-5 mx-auto" style="max-width: 700px;">
                         <h3>R&D Partnership</h3>
                         <p>We pilot experimental agentic models with selected partners before general industry release.</p>
-                        <a href="/contact.html" class="btn btn-primary mt-4">Schedule a Strategy Call</a>
+                        <a href="/contact" class="btn btn-primary mt-4">Schedule a Strategy Call</a>
                     </div>
 
                     <div class="text-center mt-4">
-                        <a href="/rd.html" class="btn-ghost" style="font-size: 0.8rem;">&larr; Back to R&D</a>
+                        <a href="/rd" class="btn-ghost" style="font-size: 0.8rem;">&larr; Back to R&D</a>
                     </div>
                 </div>
             </div>
@@ -163,6 +170,7 @@
                 // Content rendering
                 document.getElementById('post-label').innerText = `${post.status} / PROJECT ${post.slug.toUpperCase()}`;
                 document.getElementById('post-title').innerText = post.title;
+                document.getElementById('post-header-accent').classList.add(post.color_class);
                 document.getElementById('research-code').innerText = post.research_code || '';
                 
                 // Convert Markdown to HTML (handles literal \n strings if present)
