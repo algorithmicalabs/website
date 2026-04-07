@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&D Research | Algorithmica Labs - Agentic Frontier</title>
+    <meta name="description" content="Explore advanced agentic research and the future of autonomous CX systems. Reasoning loops, swarm coordination, and real-time product usage signals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+    <div class="grid-overlay"></div>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">
+                <span class="logo-mark">Algorithmica</span>
+                <span class="logo-sub">Labs</span>
+            </a>
+            <div class="nav-links">
+                <a href="/challenge.html">Challenge</a>
+                <a href="/solutions.html">Solution</a>
+                <a href="/process.html">Engagement</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/industry-insights.html">Insights</a>
+                <a href="/rd.html">R&D</a>
+                <a href="/contact.html" class="btn btn-outline" style="margin-left: 2.5rem;">Strategy Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="section-padding" style="padding-top: 10rem;">
+            <div class="container text-center">
+                <div class="section-header">
+                    <p class="section-label">06 / Research & Development</p>
+                    <h1 class="headline headline-em">The Agentic Frontier</h1>
+                    <p class="subheadline mx-auto">Engineering the next generation of autonomous reasoning loops and agentic swarm coordination.</p>
+                </div>
+
+                <div id="research-grid" class="monolith-grid">
+                    <!-- Dynamic R&D projects will be injected here -->
+                    <div class="loading-state">
+                        <p>Accessing the R&D Archive...</p>
+                    </div>
+                </div>
+
+                <script type="module">
+                    import { neon } from 'https://cdn.jsdelivr.net/npm/@neondatabase/serverless@0.10.4/+esm';
+                    
+                    async function loadResearch() {
+                        const grid = document.getElementById('research-grid');
+                        try {
+                            const sql = neon('postgresql://web_viewer:npg_6782346823@ep-small-cherry-ant4sn61.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require');
+                            const projects = await sql`SELECT title, slug, research_code, status, color_class FROM research ORDER BY created_at DESC`;
+                            
+                            if (projects.length === 0) {
+                                grid.innerHTML = '<p class="text-center w-full">No research projects found in the archive.</p>';
+                                return;
+                            }
+
+                            grid.innerHTML = projects.map(p => `
+                                <a href="/rd-post.html?slug=${p.slug}" class="insight-card reveal-on-scroll">
+                                    <div class="insight-header ${p.color_class}">
+                                        <div class="insight-brand">
+                                            <span class="brand-main">Algorithmica</span>
+                                            <span class="brand-sub">Labs</span>
+                                        </div>
+                                    </div>
+                                    <div class="insight-body">
+                                        <span class="insight-date">${p.research_code} / ${p.status}</span>
+                                        <h3>${p.title}</h3>
+                                    </div>
+                                    <div class="insight-footer">
+                                        <span class="btn-ghost" style="font-size: 0.75rem;">View Research &rarr;</span>
+                                    </div>
+                                </a>
+                            `).join('');
+                            
+                            if (window.initializeReveal) window.initializeReveal();
+
+                        } catch (error) {
+                            console.error('Error loading research:', error);
+                            grid.innerHTML = '<p class="text-center w-full">Error accessing research grid. Please retry.</p>';
+                        }
+                    }
+                    
+                    loadResearch();
+                </script>
+
+
+                <div class="next-step-box mt-5 mx-auto" style="max-width: 800px;">
+                    <h3>The Future of Agentic CX</h3>
+                    <p>Our R&D team is constantly exploring the frontier of the agentic economy. These research efforts directly inform every unique architecture we deploy.</p>
+                    <a href="/contact.html" class="btn btn-primary mt-4">Review Your Case Study & Architecture</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="footer-logo-mark">Algorithmica</span>
+                    <span class="footer-logo-sub">Labs</span>
+                </div>
+                <p>Bespoke Agentic Systems for B2B SaaS</p>
+                <p class="location">Kolkata | Operating globally</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-links mb-3" style="margin-bottom: 1.5rem;">
+                    <a href="https://www.instagram.com/algorithmica.labs/" target="_blank" class="footer-email">Instagram</a>
+                </div>
+                <a href="mailto:info@algorithmicalabs.online" class="footer-email">info@algorithmicalabs.online</a>
+                <p class="copyright">&copy; 2026 Algorithmica Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="next-node-link-bottom" style="position: fixed; bottom: 2rem; right: 3rem; background: var(--bg); border: 1px solid var(--border); padding: 1rem 2rem; z-index: 100; transition: var(--transition); font-size: 0.8rem; letter-spacing: 0.1em; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+        <a href="/contact.html" style="text-decoration: none; color: var(--text);">FINAL NODE: <strong>STRATEGY CALL</strong> &rarr;</a>
+    </div>
+
+    <script src="./src/main.js" type="module"></script>
+</body>
+</html>

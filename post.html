@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post | Algorithmica Labs</title>
+    <meta id="meta-description" name="description" content="">
+    <meta id="meta-keywords" name="keywords" content="">
+    <link rel="canonical" id="canonical-url" href="">
+    
+    <!-- Open Graph / Social SEO -->
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" id="og-image" content="">
+    <meta property="og:type" content="article">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        .post-content h1, .post-content h2, .post-content h3 {
+            font-weight: 500;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+        .post-content h1 { font-size: 2.2rem; }
+        .post-content h2 { font-size: 1.8rem; }
+        .post-content h3 { font-size: 1.4rem; }
+        
+        .post-content p {
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+        }
+        .post-content ul, .post-content ol {
+            margin-bottom: 1.8rem;
+            padding-left: 1.5rem;
+        }
+        .post-content li {
+            margin-bottom: 0.8rem;
+        }
+        .post-content blockquote {
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            margin: 3rem 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-overlay"></div>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">
+                <span class="logo-mark">Algorithmica</span>
+                <span class="logo-sub">Labs</span>
+            </a>
+            <div class="nav-links">
+                <a href="/challenge.html">Challenge</a>
+                <a href="/solutions.html">Solution</a>
+                <a href="/process.html">Engagement</a>
+                <a href="/terms.html">Terms</a>
+                <a href="/industry-insights.html">Insights</a>
+                <a href="/rd.html">R&D</a>
+                <a href="/contact.html" class="btn btn-outline" style="margin-left: 2.5rem;">Strategy Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="post-container">
+        <section class="section-padding" style="padding-top: 10rem;">
+            <div class="container">
+                <div class="max-w-700 mx-auto">
+                    <div class="breadcrumb" style="margin-bottom: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-ghost);">
+                        <a href="/industry-insights.html" style="text-decoration: none; color: var(--text-muted);">&larr; INSIGHTS</a>
+                    </div>
+                    <p id="post-label" class="section-label">Synchronizing...</p>
+                    <h1 id="post-title" class="headline headline-em" style="font-size: 2.8rem; margin-bottom: 3rem;"></h1>
+
+                    <div id="post-header-accent" class="insight-header mb-5" style="border-radius: 0;"></div>
+
+                    <div id="post-body" class="post-content body-text">
+                        <!-- Content injected here -->
+                    </div>
+
+                    <div class="next-step-box mt-5 mx-auto" style="max-width: 700px;">
+                        <h3>Scale with Operational Sovereignty</h3>
+                        <p>We provide the engineering transformation to move from manual CX to autonomous value drivers.</p>
+                        <a href="/contact.html" class="btn btn-primary mt-4">Schedule a Strategy Call</a>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/industry-insights.html" class="btn-ghost" style="font-size: 0.8rem;">&larr; Back to all Insights</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="footer-logo-mark">Algorithmica</span>
+                    <span class="footer-logo-sub">Labs</span>
+                </div>
+                <p>Bespoke Agentic Systems for B2B SaaS</p>
+                <p class="location">Kolkata | Operating globally</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-links mb-3" style="margin-bottom: 1.5rem;">
+                    <a href="https://www.instagram.com/algorithmica.labs/" target="_blank" class="footer-email">Instagram</a>
+                </div>
+                <a href="mailto:info@algorithmicalabs.online" class="footer-email">info@algorithmicalabs.online</a>
+                <p class="copyright">&copy; 2026 Algorithmica Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { neon } from 'https://cdn.jsdelivr.net/npm/@neondatabase/serverless@0.10.4/+esm';
+        
+        async function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+            
+            if (!slug) {
+                window.location.href = '/industry-insights.html';
+                return;
+            }
+
+            try {
+                const sql = neon('postgresql://web_viewer:npg_6782346823@ep-small-cherry-ant4sn61.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require');
+                const posts = await sql`SELECT * FROM insights WHERE slug = ${slug} LIMIT 1`;
+                
+                if (posts.length === 0) {
+                    document.getElementById('post-title').innerText = 'System Node Not Found';
+                    return;
+                }
+
+                const post = posts[0];
+                
+                // SEO metadata implementation
+                document.title = post.meta_title || `${post.title} | Algorithmica Labs`;
+                document.getElementById('meta-description').content = post.meta_description || '';
+                document.getElementById('meta-keywords').content = post.keywords || '';
+                document.getElementById('canonical-url').href = post.canonical_url || window.location.href;
+                
+                // Open Graph tags
+                document.getElementById('og-title').content = post.meta_title || post.title;
+                document.getElementById('og-description').content = post.meta_description || '';
+                if (post.og_image) document.getElementById('og-image').content = post.og_image;
+
+                // Content rendering
+                document.getElementById('post-label').innerText = `${post.category} / ${new Date(post.published_date).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).toUpperCase()}`;
+                document.getElementById('post-title').innerText = post.title;
+                document.getElementById('post-header-accent').classList.add(post.color_class);
+                
+                // Convert Markdown to HTML (handles literal \n strings if present)
+                const content = (post.body_markdown || '').replace(/\\n/g, '\n');
+                document.getElementById('post-body').innerHTML = marked.parse(content);
+                
+                // Ensure internal anchor links work smoothly
+                document.querySelectorAll('.post-content a').forEach(link => {
+                    link.style.color = 'var(--text)';
+                    link.style.textDecoration = 'underline';
+                    link.style.textUnderlineOffset = '0.2em';
+                });
+
+            } catch (error) {
+                console.error('Error loading industrial insight:', error);
+            }
+        }
+        
+        loadPost();
+    </script>
+</body>
+</html>
