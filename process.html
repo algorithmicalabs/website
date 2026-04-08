@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Process | Algorithmica Labs - 8-Week Delivery Framework</title>
-    <meta name="description" content="Explore our disciplined 8-week delivery framework for engineering-grade CX automation. Comprehensive audit to full deployment and optimization.">
+    <title>The Sprint-to-Value Model | Algorithmica Labs | The Process</title>
+    <meta name="description" content="Explore our high-leverage 8-week delivery framework for engineering-grade CX automation. From architectural mapping to full autonomous resolution.">
+    <link rel="canonical" href="https://algorithmicalabs.online/process.html">
+    
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://algorithmicalabs.online/process.html">
+    <meta property="og:title" content="The Sprint-to-Value Model | Algorithmica Labs | The Process">
+    <meta property="og:description" content="Disciplined 8-week framework for technical CX automation. Outcome-aligned engineering processes.">
+    <meta property="og:image" content="https://algorithmicalabs.online/social-preview.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -12,79 +23,81 @@
 <body>
     <div class="grid-overlay"></div>
 
-    <nav class="navbar sticky-top">
+    <nav class="navbar">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="/" class="logo">
                 <span class="logo-mark">Algorithmica</span>
                 <span class="logo-sub">Labs</span>
             </a>
-            <div class="nav-links">
-                <a href="/challenge">Challenge</a>
-                <a href="/solutions">Solution</a>
-                <a href="/process">Engagement</a>
-                <a href="/terms">Terms</a>
-                <a href="/industry-insights">Insights</a>
-                <a href="/rd">R&D</a>
-                <a href="/contact" class="btn btn-outline" style="margin-left: 2.5rem;">Strategy Call</a>
+            
+            <div class="menu-toggle" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-links" id="mobileNav">
+                <a href="/index.html">Systems</a>
+                <a href="/challenge.html">Challenge</a>
+                <a href="/solutions.html">Solutions</a>
+                <a href="/process.html" class="active">Process</a>
+                <a href="/about.html">Mission</a>
+                <a href="/terms.html">Terms</a>
+                <div class="mobile-cta">
+                    <a href="/contact.html" class="btn btn-primary">Strategy Call</a>
+                </div>
+            </div>
+
+            <div class="nav-cta">
+                <a href="/contact.html" class="btn btn-primary">Strategy Call</a>
             </div>
         </div>
     </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-links">
-            <a href="/challenge">Challenge</a>
-            <a href="/solutions">Solution</a>
-            <a href="/process">Engagement</a>
-            <a href="/industry-insights">Insights</a>
-            <a href="/rd">R&D</a>
-            <div class="mobile-cta">
-                <a href="/contact" class="btn btn-primary">Strategy Call</a>
-            </div>
-        </div>
-    </div>
 
     <main>
         <section class="section-padding" style="padding-top: 10rem;">
             <div class="container">
                 <div class="section-header mb-5">
                     <p class="section-label">03 / Delivery</p>
-                    <h1 class="headline headline-em">8-Week Disciplined Engagement</h1>
-                    <p class="subheadline" style="margin: 0;">A time-bound framework for engineering-grade deployment. Transparent progress. No open-ended scoping.</p>
+                    <h1 class="headline headline-em">The Sprint-to-Value Model</h1>
+                    <p class="subheadline" style="margin: 0;">An elite engineering extension of your team. Deployment in 4–8 weeks from kickoff to full production.</p>
                 </div>
 
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="time-marker">Weeks 1–2</div>
+                        <div class="time-marker">Phase 1</div>
                         <div class="time-content">
-                            <h3>Strategic Audit & Mapping</h3>
-                            <p class="body-text">We begin with a comprehensive analysis of your current technology stack (e.g., Stripe, Linear, Mixpanel) and manual CX workflows. Working closely with your leadership and engineering teams, we prioritize the highest-leverage opportunities for agentic automation that directly impact NRR and ticket volume.</p>
+                            <h3>Architectural Mapping (Week 1–2)</h3>
+                            <p class="body-text">The engagement begins with a deep-dive industrial audit of your existing CX ecosystem. This isn't just a surface-level review; we perform a rigorous historical ticket analysis using our internal intelligence tools to identify high-density friction points, recurring technical bottlenecks, and systemic knowledge gaps.</p>
+                            <p class="body-text mt-3">Parallel to this, we audit your entire tool stack—including Stripe for billing, Salesforce for CRM, Linear for issue tracking, and your internal AWS or GCP deployment environments. We map every required API interaction, data model, and business rule to ensure a seamless integration layer.</p>
+                            <p class="body-text mt-3"><strong>Deliverables:</strong> Comprehensive Architectural Blueprint, Strategic API Mapping Document, and Segmented Permission-Level Scopes for each target Specialist Agent, ensuring zero-trust security throughout the system.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="time-marker">Weeks 3–5</div>
+                        <div class="time-marker">Phase 2</div>
                         <div class="time-content">
-                            <h3>Iterative Development & Integration</h3>
-                            <p class="body-text">We build the reasoning loops and integration connectors specific to your use case. This phase involves iterative development and integration of the agent swarm directly into your staging environments. We ensure the agent architecture is robust and aligned with your existing security and operational standards.</p>
+                            <h3>Swarm Engineering & Sandbox Trial (Week 3–5)</h3>
+                            <p class="body-text">Once the architecture is solidified, we transition to the core engineering phase. We construct the custom multi-agent logic within a production-equivalent sandbox environment. This involves configuring the <strong>Leader Agent</strong> with your specific tone of voice and business rules, and engineering the <strong>Specialist Nodes</strong> for atomic data reconciliation and cross-tool orchestration.</p>
+                            <p class="body-text mt-3">During these weeks, we run thousands of synthetic simulations against your historical support data to refine the agents' reasoning paths. We specifically target the 70–80% autonomous resolution objective, ensuring that common technical requests are handled with 100% accuracy and zero human intervention.</p>
+                            <p class="body-text mt-3"><strong>Deliverables:</strong> Fully customized Multi-Agent Fleet deployment in sandbox, functional core integration links, and a comprehensive Stress-Test Performance Report.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="time-marker">Weeks 6–7</div>
+                        <div class="time-marker">Phase 3</div>
                         <div class="time-content">
-                            <h3>Rigorous Alignment & Handover</h3>
-                            <p class="body-text">The system's knowledge base is aligned with your existing documentation, and we perform rigorous testing of resolution accuracy and brand-voice consistency. Once testing criteria are met, we provide handover training to your internal teams for full operational oversight.</p>
+                            <h3>Shadow Deployment & Continuous Tuning (Week 6–7)</h3>
+                            <p class="body-text">This is the critical "Soft-Launch" phase. The system runs live in your production environment but operates in a **Shadow Mode**. Our agents process every incoming conversation in real-time and generate proposed resolutions and state-change actions, but these are routed through an internal dashboard for your team to audit.</p>
+                            <p class="body-text mt-3">This human-in-the-loop period allows us to perform high-fidelity fine-tuning of the **Supervisor Agent's** veto protocols and policy enforcement. We monitor live system behavior to eliminate hallucinations and confirm that every agentic action aligns perfectly with your brand's strict security and operational standards.</p>
+                            <p class="body-text mt-3"><strong>Deliverables:</strong> Daily Real-Time Performance Audits, Shadow Resolution Accuracy Logs, and final architectural hardening for the full production handoff.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="time-marker">Week 8</div>
+                        <div class="time-marker">Phase 4</div>
                         <div class="time-content">
-                            <h3>Go-Live & Performance Establishment</h3>
-                            <p class="body-text">Final deployment to production. We establish a performance baseline based on the first 30 days of live operation, monitoring metrics like autonomous resolution rates and NRR lift. This step ensures that the system is delivering measurable, documented impact.</p>
+                            <h3>Full Handoff & Sovereign Autonomy (Week 8)</h3>
+                            <p class="body-text">The final transition to live autonomous resolution. We activate the public-facing agent interface across all channels—Slack, Discord, Email, and In-App Chat. The system takes over the primary triage and resolution path for the majority of technical support load, freeing your team to focus exclusively on high-stakes strategic initiatives.</p>
+                            <p class="body-text mt-3">Simultaneously, we trigger the **Proactive CX Agent**, allowing it to initiate outbound nudges and automated churn-prevention plays based on live usage signals. We conduct a final end-to-end audit to verify that the 70–80% resolution target has been achieved in the live environment.</p>
+                            <p class="body-text mt-3"><strong>Deliverables:</strong> Live System Activation, Final Operational Dashboard, Full System Runbooks for your engineering team, and a 6-month scale-up roadmap.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +132,7 @@
     </footer>
 
     <div class="next-node-link-bottom" style="position: fixed; bottom: 2rem; right: 3rem; background: var(--bg); border: 1px solid var(--border); padding: 1rem 2rem; z-index: 100; transition: var(--transition); font-size: 0.8rem; letter-spacing: 0.1em; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-        <a href="/industry-insights.html" style="text-decoration: none; color: var(--text);">NEXT NODE: <strong>INSIGHTS</strong> &rarr;</a>
+        <a href="/contact.html" style="text-decoration: none; color: var(--text);">NEXT NODE: <strong>STRATEGY CALL</strong> &rarr;</a>
     </div>
 
     <script src="./src/main.js" type="module"></script>

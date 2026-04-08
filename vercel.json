@@ -1,8 +1,5 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/post/:id", "destination": "/post.html" },
-    { "source": "/rd-post/:id", "destination": "/rd-post.html" }
-  ]
+  "rewrites": []
 }

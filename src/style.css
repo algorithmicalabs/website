@@ -20,6 +20,16 @@
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
     --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     --max-w: 1200px;
+    
+    /* Agent Identities (Command System Accents) */
+    --agent-leader: #0066ff;
+    --agent-specialist: #00cc66;
+    --agent-supervisor: #ff3333;
+    --agent-memory: #9933ff;
+    --agent-reconciliation: #ff9933;
+    --agent-proactive: #00cccc;
+    --agent-insights: #ffcc00;
+    --agent-unifier: #888888;
 }
 
 @font-face {
@@ -32,6 +42,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Text Selection - Ultra Contrast */
+::selection {
+    background: var(--black);
+    color: var(--white);
+}
+
+/* For elements with black background, reverse selection */
+.bg-dark ::selection, 
+.section-padding[style*="background: #000"] ::selection,
+.section-padding[style*="background:#000"] ::selection,
+.section-padding[style*="background: black"] ::selection,
+.agentic-demo-container ::selection,
+.command-log ::selection,
+.matrix-sync-demo ::selection,
+.agent-node:hover ::selection,
+.agent-node.active ::selection {
+    background: var(--white);
+    color: var(--black);
 }
 
 html {
@@ -48,11 +78,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
-}
-
-::selection {
-    background: rgba(0, 0, 0, 0.05);
-    color: var(--black);
 }
 
 /* Grid Overlay — blueprint style */
@@ -183,6 +208,60 @@ body {
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--text);
+}
+
+/* Logo Cloud Section */
+.logo-cloud-section {
+    padding: 6rem 0;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-strip-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+    padding: 0 4rem;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    height: 30px;
+    width: auto;
+    max-width: 130px;
+    opacity: 0.5;
+    filter: grayscale(1) brightness(0);
+    transition: var(--transition);
+}
+
+.logo-item:hover .logo-img {
+    opacity: 1;
+    filter: grayscale(0) brightness(1);
+}
+
+.logo-text-context {
+    padding-top: 4rem;
+}
+
+@media (max-width: 1024px) {
+    .logo-cloud-section {
+        padding: 4rem 0;
+    }
+    .logo-strip-flex {
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+    .logo-img {
+        height: 22px;
+    }
 }
 
 /* Buttons */
@@ -1526,4 +1605,444 @@ body {
 
 .diagnostic-container, .swarm-viz-container, .agentic-demo-container {
     position: relative;
+}
+
+/* ── Premium Agent Matrix ─────────────────────────── */
+.agent-matrix {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+    background: var(--bg);
+}
+
+@media (max-width: 1200px) {
+    .agent-matrix { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .agent-matrix { grid-template-columns: 1fr; }
+}
+
+.agent-node {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.agent-node::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, var(--agent-color, rgba(255,255,255,0.05)), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    mix-blend-mode: color-dodge;
+}
+
+.agent-node:hover,
+.agent-node.active {
+    background: #000 !important;
+    border-color: #fff !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    z-index: 5;
+}
+
+.agent-node:hover .agent-role,
+.agent-node:hover .agent-id,
+.agent-node:hover .body-text,
+.agent-node.active .agent-role,
+.agent-node.active .agent-id,
+.agent-node.active .body-text {
+    color: #fff !important;
+}
+
+.agent-node .node-dot {
+    transition: all 0.4s var(--ease);
+}
+
+.agent-node:hover .node-dot,
+.agent-node.active .node-dot {
+    background: #fff !important;
+    box-shadow: 0 0 15px #fff;
+}
+
+.agent-id {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.agent-role {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+/* Identity Colors Injection */
+.agent-node:nth-child(1) { --agent-color: var(--agent-leader); }
+.agent-node:nth-child(2) { --agent-color: var(--agent-specialist); }
+.agent-node:nth-child(3) { --agent-color: var(--agent-supervisor); }
+.agent-node:nth-child(4) { --agent-color: var(--agent-memory); }
+.agent-node:nth-child(5) { --agent-color: var(--agent-reconciliation); }
+.agent-node:nth-child(6) { --agent-color: var(--agent-proactive); }
+.agent-node:nth-child(7) { --agent-color: var(--agent-insights); }
+.agent-node:nth-child(8) { --agent-color: var(--agent-unifier); }
+
+/* Command Log Terminal Rendering */
+.command-log {
+    background: #000;
+    border: 1px solid var(--border);
+    height: 300px;
+    padding: 1.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    overflow-y: auto;
+    position: relative;
+}
+
+.command-log::before {
+    content: 'CX_COMMAND_INTERFACE v2.4 // TERMINAL_ACTIVE';
+    position: sticky;
+    top: -1.5rem;
+    right: 0;
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    opacity: 0.8;
+    background: #000;
+    padding: 0.5rem 0;
+    display: block;
+    text-align: right;
+    z-index: 10;
+}
+
+.agent-description-box {
+    margin-top: 2rem;
+    padding: 3rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    transition: all 0.5s var(--ease);
+}
+
+.agent-description-box h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-ghost);
+    margin-bottom: 1.5rem;
+    font-family: 'Geist Mono', monospace;
+}
+
+.agent-description-box .desc-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+    color: var(--text);
+    max-width: 900px;
+}
+
+.log-timestamp {
+    color: #444;
+    margin-right: 1rem;
+}
+
+.log-agent {
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.log-message {
+    color: #eee;
+}
+
+/* ── Intelligence / Insight Cards ────────────────── */
+.insight-card {
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+.insight-header {
+    height: 180px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    padding: 0.4rem 0.8rem;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    width: fit-content;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.insight-brand {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.insight-body {
+    padding: 2.5rem;
+    flex-grow: 1;
+}
+
+.insight-date {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-ghost);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.insight-body h3 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+.insight-footer {
+    padding: 0 2.5rem 2.5rem;
+}
+
+/* Background Identity Colors */
+.bg-blue { background: #0066ff; color: #fff; }
+.bg-green { background: #00cc66; color: #fff; }
+.bg-red { background: #ff3333; color: #fff; }
+.bg-purple { background: #9933ff; color: #fff; }
+/* ── Matrix Sync Demo Styles ───────────────────── */
+.matrix-sync-demo {
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sync-viz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0;
+    padding: 0 4rem;
+    position: relative;
+}
+
+.sync-node {
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    transition: all 0.4s var(--ease);
+    z-index: 2;
+}
+
+.sync-node.active {
+    border-color: #fff;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
+}
+
+.sync-line {
+    height: 1px;
+    background: var(--border);
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.sync-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+}
+
+.sync-line.flowing::after {
+    animation: flowLine 2.5s infinite linear;
+}
+
+@keyframes flowLine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.sync-log {
+    height: 180px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: #888;
+    line-height: 1.8;
+    overflow-y: auto;
+}
+
+.sync-log .log-line {
+    margin-bottom: 0.5rem;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+}
+
+.sync-log .log-line.active {
+    color: #fff;
+    border-left-color: #fff;
+}
+/* ── Responsive Improvements ─────────────────────── */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+    .grid-2 {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .navbar .container {
+        justify-content: space-between;
+    }
+    
+    .menu-toggle {
+        display: block !important;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        transition: right 0.6s var(--ease);
+        z-index: 1000;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+        margin-left: 0;
+        color: var(--black);
+    }
+    
+    .nav-links .mobile-cta {
+        display: block !important;
+        margin-top: 2rem;
+        width: calc(100% - 4rem);
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .nav-cta {
+        display: none !important;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .headline {
+        font-size: 3rem;
+    }
+    
+    .card-matrix {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-padding {
+        padding: 5rem 0;
+    }
+    
+    .hero-section {
+        padding-top: 8rem;
+    }
+    
+    .headline {
+        font-size: 2.5rem;
+    }
+    
+    .card-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .sync-viz {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+    }
+}
+
+/* UI Components */
+.menu-toggle {
+    display: none;
+    width: 24px;
+    height: 18px;
+    position: relative;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--text);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 0; }
+.menu-toggle span:nth-child(2) { top: 50%; }
+.menu-toggle span:nth-child(3) { top: 100%; }
+
+.menu-toggle.active span:nth-child(1) { transform: rotate(45deg); top: 50%; }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: rotate(-45deg); top: 50%; }
+
+.mobile-cta {
+    display: none;
 }
