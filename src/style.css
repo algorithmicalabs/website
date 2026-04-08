@@ -222,7 +222,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3.5rem;
+    gap: 3rem;
     flex-wrap: wrap;
     padding: 0 4rem;
 }
@@ -231,20 +231,33 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: var(--transition);
+}
+
+.logo-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .logo-img {
     height: 30px;
     width: auto;
-    max-width: 130px;
+    max-width: 120px;
     opacity: 0.5;
     filter: grayscale(1) brightness(0);
     transition: var(--transition);
 }
 
+.logo-item:hover {
+    transform: translateY(-5px);
+}
+
 .logo-item:hover .logo-img {
     opacity: 1;
     filter: grayscale(0) brightness(1);
+    transform: scale(1.05);
 }
 
 .logo-text-context {
@@ -256,11 +269,11 @@ body {
         padding: 4rem 0;
     }
     .logo-strip-flex {
-        gap: 2rem;
-        padding: 0 2rem;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
     }
     .logo-img {
-        height: 22px;
+        height: 20px;
     }
 }
 
