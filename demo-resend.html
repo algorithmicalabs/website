@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resend Integration | Proof of Work | Algorithmica Labs</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/style.css">
+    <style>
+        .demo-iframe-container {
+            width: 100%;
+            height: 85vh;
+            border: 1px solid var(--vault-border);
+            border-radius: 4px;
+            overflow: hidden;
+            background: black;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            margin-bottom: 4rem;
+        }
+        .demo-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--vault-text-dim);
+            text-decoration: none;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: white;
+        }
+        .demo-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--vault-border);
+            padding-bottom: 2rem;
+        }
+        .demo-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="vault-page">
+    <div class="grid-overlay"></div>
+
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="logo">
+                <span class="logo-mark" style="color: white;">Algorithmica</span>
+                <span class="logo-sub" style="color: rgba(255,255,255,0.7);">Labs</span>
+            </a>
+            
+            <div class="menu-toggle" id="hamburger">
+                <span style="background: white;"></span>
+                <span style="background: white;"></span>
+                <span style="background: white;"></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="/index.html">Systems</a>
+                <a href="/challenge.html">Challenge</a>
+                <a href="/solutions.html">Solutions</a>
+                <a href="/process.html">Process</a>
+                <a href="/demos.html" class="active">Vault</a>
+                <a href="/terms.html">Terms</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="/contact.html" class="btn btn-primary" style="background: white; color: black;">Strategy Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-links">
+            <a href="/index.html">Systems</a>
+            <a href="/challenge.html">Challenge</a>
+            <a href="/solutions.html">Solutions</a>
+            <a href="/process.html">Process</a>
+            <a href="/demos.html">Vault</a>
+            <a href="/terms.html">Terms</a>
+            <div class="mobile-cta">
+                <a href="/contact.html" class="btn btn-primary">Strategy Call</a>
+            </div>
+        </div>
+    </div>
+
+    <main style="padding-top: 8rem; min-height: 100vh;">
+        <div class="container">
+            <a href="demos.html" class="back-link">&larr; RETURN TO VAULT</a>
+            
+            <div class="demo-header">
+                <h1 class="demo-title">Resend Support Swarm</h1>
+                <p style="color: var(--vault-text-dim); font-size: 1.1rem; max-width: 800px; font-weight: 300;">
+                    LIVE DEMO: Dynamic CRM Sync and Autonomous Routing.
+                </p>
+            </div>
+
+            <div class="grid-layout grid-2" style="gap: 4rem; margin-bottom: 4rem;">
+                <div class="content-area" id="demo-content">
+                    <!-- Wait for content injection from user -->
+                    <p style="color: var(--vault-text-dim); font-family: 'Geist Mono', monospace; font-size: 0.85rem; padding: 2rem; border: 1px dashed var(--vault-border);">
+                        [ SYSTEM AWAITING CONTENT PAYLOAD ]
+                    </p>
+                </div>
+                
+                <div class="iframe-area">
+                    <div class="demo-iframe-container">
+                        <iframe src="https://resend-eta.vercel.app/" class="demo-iframe" title="Resend Agentic UI"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" style="background: var(--slate-950); border-top: 1px solid var(--vault-border); padding-top: 4rem; padding-bottom: 3rem;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="footer-logo-mark" style="color: white;">Algorithmica</span>
+                    <span class="footer-logo-sub" style="color: var(--vault-text-dim);">Labs</span>
+                </div>
+                <p style="color: var(--vault-text-dim);">Bespoke Agentic Systems for B2B SaaS</p>
+                <p class="location" style="color: var(--vault-text-dim);">Kolkata | Operating globally</p>
+            </div>
+            <div class="footer-right" style="text-align: right;">
+                <div class="social-links mb-3" style="margin-bottom: 1.5rem; display: flex; gap: 1.5rem; justify-content: flex-end;">
+                    <a href="https://www.instagram.com/algorithmica.labs/" target="_blank" class="footer-email" style="color: var(--vault-text-dim);">Instagram</a>
+                    <a href="https://x.com/Saikat_slays" target="_blank" class="footer-email" style="color: var(--vault-text-dim);">Twitter</a>
+                </div>
+                <a href="mailto:info@algorithmicalabs.online" class="footer-email" style="color: var(--vault-text-dim);">info@algorithmicalabs.online</a>
+                <p class="copyright" style="color: var(--vault-text-dim);">&copy; 2026 Algorithmica Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/main.js"></script>
+</body>
+</html>

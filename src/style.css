@@ -30,6 +30,14 @@
     --agent-proactive: #00cccc;
     --agent-insights: #ffcc00;
     --agent-unifier: #888888;
+    
+    /* Vault / Dark Theme Tokens */
+    --slate-950: #0a0a0c;
+    --slate-900: #121214;
+    --slate-800: #1a1a1c;
+    --vault-border: rgba(255, 255, 255, 0.08);
+    --vault-text: #e0e0e0;
+    --vault-text-dim: #a0a0a0;
 }
 
 @font-face {
@@ -52,6 +60,7 @@
 
 /* For elements with black background, reverse selection */
 .bg-dark ::selection, 
+.vault-page ::selection,
 .section-padding[style*="background: #000"] ::selection,
 .section-padding[style*="background:#000"] ::selection,
 .section-padding[style*="background: black"] ::selection,
@@ -210,6 +219,25 @@ body {
     color: var(--text);
 }
 
+/* Vault Navigation Overrides */
+.vault-page .navbar {
+    border-bottom: 1px solid var(--vault-border);
+}
+
+.vault-page .logo-mark, 
+.vault-page .nav-links a {
+    color: white;
+}
+
+.vault-page .nav-links a.active {
+    color: var(--agent-proactive);
+}
+
+.vault-page .navbar-scrolled {
+    background: rgba(10, 10, 12, 0.8);
+    border-bottom: 1px solid var(--vault-border);
+}
+
 /* Logo Cloud Section */
 .logo-cloud-section {
     padding: 6rem 0;
@@ -337,6 +365,70 @@ body {
 
 .btn-ghost:hover::after {
     width: 100%;
+}
+
+/* Vault Cards & Infrastructure */
+.vault-page {
+    background-color: var(--slate-950);
+    color: var(--vault-text);
+}
+
+.vault-page .grid-overlay {
+    opacity: 0.1;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+.systems-card {
+    background: var(--slate-900);
+    border: 1px solid var(--vault-border);
+    padding: 3rem;
+    position: relative;
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+}
+
+.systems-card:hover {
+    border-color: rgba(255,255,255,0.3);
+    background: var(--slate-800);
+    transform: translateY(-5px);
+}
+
+.systems-card .brand-logo {
+    max-width: 140px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.systems-card:hover .brand-logo {
+    opacity: 1;
+}
+
+.systems-card .status-tag {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--agent-specialist);
+    letter-spacing: 0.1em;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(0, 204, 102, 0.2);
+}
+
+.systems-card .card-log {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--vault-text-dim);
+    margin-top: auto;
 }
 
 /* ── Hero ────────────────────────────────────────── */
